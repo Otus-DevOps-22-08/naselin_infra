@@ -3,8 +3,9 @@ naselin Infra repository
 
 ## HW-03 (lesson-05).
 #### Самостоятельное задание: исследовать способ подключения к someinternalhost в одну команду из вашего рабочего устройства.
-Предварительно включаем SSH forwarding (рабочее устройство - CentOS Linux release 7.9.2009):
+Предварительно настраиваем SSH forwarding (рабочее устройство - CentOS Linux release 7.9.2009):
 ```
+$ ssh-add -L
 $ eval `ssh-agent -s`
 $ ssh-add ~/.ssh/appuser
 ```
