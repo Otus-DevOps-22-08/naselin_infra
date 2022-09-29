@@ -16,9 +16,9 @@ $ ssh -i ~/.ssh/appuser -A appuser@130.193.39.94 ssh appuser@someinternalhost
 ```
 $ ssh -i ~/.ssh/appuser -J appuser@130.193.39.94 appuser@someinternalhost
 ```
-#### Дополнительное задание: предложить вариант решения для подключения из консоли при помощи команды вида ssh someinternalhost из локальной консоли рабочего устройства, чтобы подключение выполнялось по алиасу someinternalhost 
+#### Дополнительное задание: предложить вариант решения для подключения из консоли при помощи команды вида ssh someinternalhost из локальной консоли рабочего устройства, чтобы подключение выполнялось по алиасу someinternalhost
 ```
-$ cat <<EOF> ~/.ssh/config 
+$ cat <<EOF> ~/.ssh/config
 Host bastion
 HostName 130.193.39.94
 IdentityFile ~/.ssh/appuser
@@ -40,6 +40,7 @@ $ chmod 600 ~/.ssh/config
 bastion_IP = 130.193.39.94
 someinternalhost_IP = 10.128.0.22
 ```
+Примечание: перед выполнением git push на рабочем устройстве необходимо отключить OpenVPN.
 
 #### Дополнительное задание: использование валидного сертификата для панели управления VPN сервера
 Настроено подключение c помощью Let’s Encrypt и sslip.io по адресу:
