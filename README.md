@@ -1,6 +1,20 @@
 # naselin_infra
 naselin Infra repository
 
+## HW-04 (lesson-06).
+#### Деплой тестового приложения.
+Данные для подключения:
+```
+testapp_IP = 62.84.117.11
+testapp_port = 9292
+```
+
+Команда для создания VM:
+```
+yc compute instance create --name reddit-app --hostname reddit-app --memory=4 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 --metadata serial-port-enable=1 --metadata-from-file user-data=metadata.yaml
+```
+
+
 ## HW-03 (lesson-05).
 #### Самостоятельное задание: исследовать способ подключения к someinternalhost в одну команду из вашего рабочего устройства.
 Предварительно настраиваем SSH forwarding (рабочее устройство - CentOS Linux release 7.9.2009):
