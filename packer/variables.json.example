@@ -4,8 +4,8 @@
             "service_account_key_file": "/path/to/your/key/key.json",
             "folder_id": "your_folder_id",
             "source_image_family": "ubuntu-YYMM-lts"
-            "instance_cores": 2,
-            "instance_mem_gb": 2
+            "instance_cores": "2",
+            "instance_mem_gb": "2"
         }
     ]
 }
