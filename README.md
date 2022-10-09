@@ -1,6 +1,28 @@
 # naselin_infra
 naselin Infra repository
-
+---
+## HW-05 (lesson-07).
+#### Сборка образов VM при помощи Packer.
+1. Установлен Packer, в YC создан и настроен сервисный аккаунт для Packer.
+2. Создан (packer/ubuntu16.json) и параметризован (packer/variables.json) шаблон для создания образа с
+использованием скриптов из предыдущего задания (packer/scripts/install_mongodb.sh, packer/scripts/install_ruby.sh).
+3. Собран образ reddit-base:
+```
+$ cd packer && packer build -var-file=variables.json ubuntu16.json
+```
+4. Вручную создана VM из подготовленного образа и установлено тестовое приложение. Доступ по ссылке:
+```
+http://178.154.206.71:9292/
+```
+5. Опробован подход "Immutable infrastructure":
+   1. создан шаблон (packer/immutable.json) со скриптами для автоматического разёртывания (packer/files/deploy_app.sh) и создания systemd unit для запуска (packer/files/create_puma_service.sh) приложения;
+   2. собран образ reddit-full: ```$ cd packer && packer build -var-file=variables.json immutable.json```;
+   3. создан скрипт автоматического развёртывания VM из образа reddit-full (config-scripts/create-reddit-vm.sh);
+   4. cозданная VM доступна по ссылке:
+```
+http://178.154.220.91:9292/
+```
+---
 ## HW-04 (lesson-06).
 #### Деплой тестового приложения.
 Данные для подключения:
@@ -13,8 +35,7 @@ testapp_port = 9292
 ```
 yc compute instance create --name reddit-app --hostname reddit-app --memory=4 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 --metadata serial-port-enable=1 --metadata-from-file user-data=metadata.yaml
 ```
-
-
+---
 ## HW-03 (lesson-05).
 #### Самостоятельное задание: исследовать способ подключения к someinternalhost в одну команду из вашего рабочего устройства.
 Предварительно настраиваем SSH forwarding (рабочее устройство - CentOS Linux release 7.9.2009):
