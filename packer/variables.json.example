@@ -1,0 +1,7 @@
+{
+    "service_account_key_file": "key.json.example",
+    "folder_id": "your_folder_id",
+    "source_image_family": "ubuntu-YYMM-lts",
+    "instance_cores": "2",
+    "instance_mem_gb": "2"
+}
