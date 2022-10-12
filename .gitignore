@@ -1,2 +1,10 @@
 # secrets for Packer
 variables.json
+key.json
+
+# some Terraform stuff
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
