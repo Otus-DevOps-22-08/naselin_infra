@@ -9,3 +9,4 @@ key.json
 *.tfvars
 .terraform/
 .terraform.lock.hcl
+reqprovider.tf
