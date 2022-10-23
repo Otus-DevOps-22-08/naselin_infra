@@ -9,3 +9,4 @@ service_account_key_file = "~/key.json"
 apps_count = 1
 app_disk_image = "FakeAppImageId"
 db_disk_image = "FakeDbImageId"
+app_database_ip = "127.0.0.1"

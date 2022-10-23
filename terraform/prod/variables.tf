@@ -39,3 +39,7 @@ variable "db_disk_image" {
   description = "Disk image for reddit db"
   default     = "reddit-db-base"
 }
+variable "app_database_ip" {
+  description = "MongoDB address"
+  default     = "127.0.0.1"
+}
