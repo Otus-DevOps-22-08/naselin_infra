@@ -41,7 +41,7 @@ variable "db_disk_image" {
 }
 variable "app_database_ip" {
   description = "IP address of the database server"
-  default = "127.0.0.1"
+  default     = "127.0.0.1"
 }
 variable "auto_deploy_app" {
   description = "Auto deploy application"

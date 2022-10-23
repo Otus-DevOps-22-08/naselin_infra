@@ -8,3 +8,5 @@ key.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+.terraform.lock.hcl
+reqprovider.tf
