@@ -40,6 +40,10 @@ variable "db_disk_image" {
   default     = "reddit-db-base"
 }
 variable "app_database_ip" {
-  description = "MongoDB address"
-  default     = "127.0.0.1"
+  description = "IP address of the database server"
+  default = "127.0.0.1"
+}
+variable "auto_deploy_app" {
+  description = "Auto deploy application"
+  type        = bool
 }

@@ -19,4 +19,5 @@ module "app" {
   app_disk_image   = var.app_disk_image
   subnet_id        = var.subnet_id
   app_database_ip  = module.db.internal_ip_address_db
+  auto_deploy_app  = var.auto_deploy_app
 }

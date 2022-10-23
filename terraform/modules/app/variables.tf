@@ -14,3 +14,8 @@ variable "subnet_id" {
 variable "app_database_ip" {
   description = "IP address of the database server"
 }
+variable "auto_deploy_app" {
+  description = "Auto deploy application"
+  type = bool
+  default = false
+}

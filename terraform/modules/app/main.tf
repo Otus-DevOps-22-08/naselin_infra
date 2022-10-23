@@ -26,10 +26,18 @@ resource "yandex_compute_instance" "app" {
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
+}
+
+resource "null_resource" "app-deployment" {
+  count = var.auto_deploy_app ? 1 : 0
+
+  triggers = {
+    app_vm_id = yandex_compute_instance.app.id
+  }
 
   connection {
     type  = "ssh"
-    host  = self.network_interface.0.nat_ip_address
+    host  = yandex_compute_instance.app.network_interface.0.nat_ip_address
     user  = "ubuntu"
     agent = false
     # путь до приватного ключа

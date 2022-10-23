@@ -9,3 +9,4 @@ service_account_key_file = "~/key.json"
 apps_count = 1
 app_disk_image = "FakeAppImageId"
 db_disk_image = "FakeDbImageId"
+auto_deploy_app = true
