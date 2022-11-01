@@ -8,7 +8,7 @@ import subprocess
 OUTPUT_FILE = './dynamic-inventory.json'
 
 
-class YcInventory():
+class YcInventory:
     def __init__(self):
         # Begin from empty inventory
         self.inventory = {
@@ -17,6 +17,9 @@ class YcInventory():
                 "hostvars": {},
             }
         }
+        self.args = None
+        self.yc_instances = None
+
         self.parse_cli_args()
         self.fill_dynamic_inventory()
 
