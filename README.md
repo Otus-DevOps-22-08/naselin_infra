@@ -1,6 +1,35 @@
 # naselin_infra
 naselin Infra repository
 ---
+## HW-08 (lesson-12).
+#### Знакомство с Ansible.
+1. Установлен Ansible, настроен ```ansible.cfg```.
+2. Проверена работа c хостами через модули (ping, command, shell, service, etc).
+3. Исследованы разные форматы inventory (ini, yaml, json).
+4. Создан простейший playbook ```clone.yml```, проверена идемпотентность (changed=1 в случае отсутствия папки с приложением и changed=0 при повторном запуске).
+#### Динамическое инвентори.
+Написан скрипт для динамического формирования JSON-inventory.
+```
+./yc-inventory.py --help
+usage: yc-inventory.py [-h] [--list] [--host HOST] [--pretty] [--save]
+
+Make an Ansible Inventory file for YC
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --list       List instances (default: True)
+  --host HOST  Print instance hostvars
+  --pretty     Pretty output format (default: False)
+  --save       Save inventory to file (default: False)
+```
+1. При запуске без параметров формирует JSON из результатов вывода команды ```yc compute instances list --format json```.
+2. При запуске с опцией ```--host``` выводит ```hostvars``` указанного хоста.
+3. При указании опции ```--save``` сохраняет вывод скрипта в файл ```dynamic-inventory.json```.
+4. Для использования по умолчанию, необходимо указать ```inventory=./yc-inventory.py``` в ```ansible.cfg```.
+
+P.S. ansible.cfg в репозитории настроен на использование статической конфигурации для успешного прохождения автотестов.
+
+---
 ## HW-07 (lesson-09).
 #### Принципы организации инфраструктурного кода и работа над инфраструктурой в команде на примере Terraform.
 1. БД вынесена на отдельную VM (собраны новые образы по шаблонам app.json и db.json).
