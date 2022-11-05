@@ -10,3 +10,6 @@ key.json
 .terraform/
 .terraform.lock.hcl
 reqprovider.tf
+
+# soma Ansible staff
+*.retry
