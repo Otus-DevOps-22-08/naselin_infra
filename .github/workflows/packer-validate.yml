@@ -3,9 +3,21 @@ name: Packer
 
 on:
   push:
+    branches-ignore:
+      - "main"
+  pull_request:
+    branches-ignore:
+      - "main"
 
 jobs:
   packer:
+    strategy:
+      matrix:
+        template:
+          - "app.json"
+          - "db.json"
+          - "immutable.json"
+          - "ubuntu16.json"
     runs-on: ubuntu-latest
     name: packer
 
@@ -25,4 +37,4 @@ jobs:
         with:
           command: validate
           arguments: "-var-file=packer/variables.json -syntax-only"
-          target: packer/db.json
+          target: packer/{{ matrix.template}}
