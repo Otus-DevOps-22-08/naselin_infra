@@ -37,4 +37,4 @@ jobs:
         with:
           command: validate
           arguments: "-var-file=packer/variables.json -syntax-only"
-          target: packer/{{ matrix.template}}
+          target: packer/${{ matrix.template}}
