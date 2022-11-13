@@ -1,13 +1,12 @@
----
 name: "Run ansible-lint"
 
 on:
   push:
     branches-ignore:
-      - "main"
+    - "main"
   pull_request:
     branches-ignore:
-      - "main"
+    - "main"
 
 env:
   ANSIBLE_ROLES_PATH: ansible/roles
@@ -18,11 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
-      - name: Run ansible-lint
-        uses: ansible-community/ansible-lint-action@main
-        with:
-          path: "ansible/playbooks"
-          args: "-c ansible/.ansible-lint"
+    - name: Run ansible-lint
+      uses: ansible-community/ansible-lint-action@main
+      with:
+        path: "ansible/playbooks"

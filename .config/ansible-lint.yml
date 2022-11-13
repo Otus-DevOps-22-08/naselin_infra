@@ -1,0 +1,6 @@
+exclude_paths:
+- .github
+- ansible/roles/jdauphant.nginx
+
+mock_modules:
+- bundler
