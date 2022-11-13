@@ -23,6 +23,10 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@master
 
+      - name: 'Remove buckets'
+        run: |
+          rm -f terraform/${{ matrix.environment}}/backend.tf
+
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
         with:
