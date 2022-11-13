@@ -28,7 +28,7 @@ naselin Infra repository
 
 ##### Настройка TravisCI.
 ![Default OTUS auto-tests](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/run-tests-2022-08.yml/badge.svg)
-
+![Validate packer templates](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/packer-validate.yml/badge.svg)
 ---
 ## HW-09 (lesson-13).
 #### Деплой и управление конфигурацией с Ansible.
