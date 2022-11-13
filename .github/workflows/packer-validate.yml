@@ -13,6 +13,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Prepare varfile
+        uses: canastro/copy-file-action@master
+        with:
+          source: "packer/variables.json.example"
+          target: "packer/variables.json"
+
       # validate templates
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
