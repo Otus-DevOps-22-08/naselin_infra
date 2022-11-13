@@ -24,22 +24,15 @@ naselin Infra repository
 ##### Работа с динамическим инвентори.
 Фактически, было выполнено в предыдущем ДЗ.
 В пункте 2.ii `yc_compute.yml` был скопирован в `environments/(stage|prod)`
+
 Соответственно, при запуске плейбука достаточно указать нужный инвентори файл (-i).
 
 ##### Настройка TravisCI.
 Для коммитов и PR выполняются следующие действия:
-0. Стандартные автотесты
-
-![Default OTUS auto-tests](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/run-tests-2022-08.yml/badge.svg)
-1. packer validate для всех шаблонов
-
-![Validate packer templates](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/packer-validate.yml/badge.svg)
-2. terraform validate и tflint для окружений stage и prod
-
-![Run terraform validate and tflint](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/terraform-tests.yml/badge.svg)
-3. ansible-lint для плейбуков Ansible
-
-![Run ansible-lint](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/ansible-lint.yml/badge.svg)
+0. Стандартные автотесты: ![Default OTUS auto-tests](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/run-tests-2022-08.yml/badge.svg)
+1. packer validate для всех шаблонов: ![Validate packer templates](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/packer-validate.yml/badge.svg)
+2. terraform validate и tflint для окружений stage и prod: ![Run terraform validate and tflint](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/terraform-tests.yml/badge.svg)
+3. ansible-lint для плейбуков Ansible: ![Run ansible-lint](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/ansible-lint.yml/badge.svg)
 
 ---
 ## HW-09 (lesson-13).
