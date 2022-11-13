@@ -29,6 +29,7 @@ naselin Infra repository
 
 ##### Настройка TravisCI.
 Для коммитов и PR выполняются следующие действия:
+
 0. Стандартные автотесты: ![Default OTUS auto-tests](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/run-tests-2022-08.yml/badge.svg)
 1. packer validate для всех шаблонов: ![Validate packer templates](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/packer-validate.yml/badge.svg)
 2. terraform validate и tflint для окружений stage и prod: ![Run terraform validate and tflint](https://github.com/Otus-DevOps-22-08/naselin_infra/actions/workflows/terraform-tests.yml/badge.svg)
