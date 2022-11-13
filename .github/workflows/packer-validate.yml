@@ -1,5 +1,5 @@
 ---
-name: Packer
+name: "Validate packer templates"
 
 on:
   push:
@@ -11,6 +11,8 @@ on:
 
 jobs:
   packer:
+    name: "Packer"
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         template:
@@ -18,8 +20,6 @@ jobs:
           - "db.json"
           - "immutable.json"
           - "ubuntu16.json"
-    runs-on: ubuntu-latest
-    name: packer
 
     steps:
       - name: Checkout Repository

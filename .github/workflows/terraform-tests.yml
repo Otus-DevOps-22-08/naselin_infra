@@ -1,0 +1,32 @@
+---
+name: Run terraform validate and tflint
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+  pull_request:
+    branches-ignore:
+      - "main"
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment:
+          - "prod"
+          - "stage"
+
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+
+      - name: 'Terraform Init'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: 'terraform/${{ matrix.environment}}'
+          tf_actions_comment: true
