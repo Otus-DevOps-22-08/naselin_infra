@@ -18,7 +18,7 @@
       notify: reload puma
 
     - name: Bundle install
-      bundler:
+      community.general.bundler:
         state: present
         chdir: /home/ubuntu/reddit
 

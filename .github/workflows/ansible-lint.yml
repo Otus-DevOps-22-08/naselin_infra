@@ -25,3 +25,4 @@ jobs:
         uses: ansible-community/ansible-lint-action@main
         with:
           path: "ansible/playbooks"
+          args: "-c ansible/.ansible-lint"
