@@ -34,3 +34,30 @@ jobs:
           tf_actions_subcommand: 'init'
           tf_actions_working_dir: 'terraform/${{ matrix.environment}}'
           tf_actions_comment: true
+
+  tflint:
+    name: 'Tflint'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment:
+          - "prod"
+          - "stage"
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout source code
+
+    - uses: terraform-linters/setup-tflint@v2
+      name: Setup TFLint
+      with:
+        tflint_version: v0.38.1
+
+    - name: Show version
+      run: tflint --version
+
+    - name: Init TFLint
+      run: tflint --init terraform/${{ matrix.environment}}
+
+    - name: Run TFLint
+      run: tflint -f compact terraform/${{ matrix.environment}}
