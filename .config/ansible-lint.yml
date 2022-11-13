@@ -1,5 +1,12 @@
 mock_roles:
-- jdauphant.nginx
+  - jdauphant.nginx
 
 mock_modules:
-- bundler
+  - bundler
+
+skip_list:
+  - experimental  # all rules tagged as experimental
+  - fqcn[action-core]  # Use FQCN for builtin actions.
+  - meta-incorrect  # meta/main.yml default values should be changed.
+  - meta-no-info  # meta/main.yml should contain relevant info.
+  - yaml[truthy]  # Violations reported by yamllint.
