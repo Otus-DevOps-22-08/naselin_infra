@@ -1,0 +1,40 @@
+---
+name: "Validate packer templates"
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+  pull_request:
+    branches-ignore:
+      - "main"
+
+jobs:
+  packer:
+    name: "Packer"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        template:
+          - "app.json"
+          - "db.json"
+          - "immutable.json"
+          - "ubuntu16.json"
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Prepare varfile
+        uses: canastro/copy-file-action@master
+        with:
+          source: "packer/variables.json.example"
+          target: "packer/variables.json"
+
+      # validate templates
+      - name: Validate Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: "-var-file=packer/variables.json -syntax-only"
+          target: packer/${{ matrix.template}}
