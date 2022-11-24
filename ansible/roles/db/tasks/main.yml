@@ -4,5 +4,7 @@
   debug:
     msg: "This host is in {{ env }} environment!!!"
 
-- import_tasks: install_mongo.yml
-- import_tasks: config_mongo.yml
+- name: Install MongoDB
+  import_tasks: install_mongo.yml
+- name: Configure MongoDB
+  import_tasks: config_mongo.yml
