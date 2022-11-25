@@ -4,5 +4,7 @@
   debug:
     msg: "This host is in {{ env }} environment!!!"
 
-- import_tasks: ruby.yml
-- import_tasks: puma.yml
+- name: Install Ruby
+  import_tasks: ruby.yml
+- name: Create puma service
+  import_tasks: puma.yml
